@@ -1,0 +1,27 @@
+# docker-compose.yml
+version: '3.3'
+services:
+  verisure2mqtt:
+    # Use image on Docker Hub
+    image: oncledave/verisure2mqtt:latest
+    container_name: verisure2mqtt
+    restart: always
+
+    # Set debug flag to true to output all received info to console.
+    # False will limit output to only mention that a query to the Verisure API is made
+    environment:
+      - "VERISURE_DEBUG=true"
+      - "MQTT_BROKER_HOST=192.168.192.254"
+      - "MQTT_BROKER_PORT=1883"
+      - "MQTT_ROOT_TOPIC=verisure2mqtt/"
+      - "MQTT_BROKER_USERNAME=verisure2mqtt"
+      - "MQTT_BROKER_PWD=NEjkBDmJfBCjtemDL2eFLfMw"
+      - "VERISURE_USERNAME=info@rd-services.be"
+      - "VERISURE_PWD=27@,JKGp9RK6f7ku"
+
+    # Depending on what version of Docker you are using, and on what platform, you might need to comment out the next two lines
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "5"
+        max-size: "5m"
