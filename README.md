@@ -24,6 +24,10 @@ It is easy to change th MQTT topics in case the current ones don't fit your need
 
 ## Changelog
 
+### Version 2.0
+
+* Swithed to new API
+
 ### Version 1.2
 
 * Updated dependencies.
